@@ -1,4 +1,5 @@
 package databasetest;
+
 import java.io.*;
 import java.util.*;
 import org.json.simple.*;
@@ -9,10 +10,11 @@ import java.sql.*;
 public class DatabaseTest {
 
     public static void main(String[] args) {
-        
+
     }
-        public static JSONArray getJSONData() throws ClassNotFoundException, InstantiationException{
-        
+
+    public static JSONArray getJSONData() throws ClassNotFoundException, InstantiationException {
+
         JSONArray results = null;
         Connection conn = null;
         PreparedStatement pstSelect = null, pstUpdate = null;
@@ -82,13 +84,14 @@ public class DatabaseTest {
                             data = new LinkedHashMap();
 
                             /* Loop Through ResultSet Columns; Print Values */
-                            for (int i = 0; i <= headers.length; i++) {
+                            for (int i = 0; i < headers.length; i++) {
 
                                 value = resultset.getString(i + 2);
 
                                 if (resultset.wasNull()) {
                                     data.put(headers[i], "");
-                                } else {
+                                } 
+                                else {
                                     data.put(headers[i], value);
                                 }
 
@@ -97,7 +100,8 @@ public class DatabaseTest {
 
                         }
 
-                    } else {
+                    } 
+                    else {
 
                         finalCount = pstSelect.getUpdateCount();
 
@@ -123,7 +127,9 @@ public class DatabaseTest {
 
         } catch (Exception e) {
             System.err.println(e.toString());
-        } /* Close Other Database Objects */ finally {
+        } /* Close Other Database Objects */ 
+        
+        finally {
 
             if (resultset != null) {
                 try {
@@ -148,7 +154,6 @@ public class DatabaseTest {
                 } catch (Exception e) {
                 }
             }
-
+                return results;
+            }
         }
-        }
-
