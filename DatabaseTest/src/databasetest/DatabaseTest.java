@@ -1,16 +1,15 @@
 package databasetest;
 
-import java.io.*;
 import java.util.*;
 import org.json.simple.*;
-import org.json.simple.parser.*;
 
 import java.sql.*;
 
 public class DatabaseTest {
 
     public static void main(String[] args) {
-
+        
+        
     }
 
     public static JSONArray getJSONData() throws ClassNotFoundException, InstantiationException {
@@ -157,3 +156,4 @@ public class DatabaseTest {
                 return results;
             }
         }
+}
